@@ -6,7 +6,10 @@ spot in the list.
 "delete" will delete the first element with that
 particular value.
 Then, use "Test Run" and "Submit" to run the test cases
-at the bottom."""
+at the bottom.
+# There isn't a built-in data structure in Python that looks like a linked list. 
+# Thankfully, it's easy to make classes that represent data structures in Python!
+"""
 
 
 class Element(object):
@@ -46,23 +49,17 @@ class LinkedList(object):
         """Get an element from a particular position.
         Assume the first position is "1".
         Return "None" if position is not in the list."""
-
-
-        # Let's assume the user sends 3
-        print(position.va)
-
-        return None
-
-    def insert(self, new_element, position):
-        """Insert a new node at the given position.
-        Assume the first position is "1".
-        Inserting at position 3 means between
-        the 2nd and 3rd elements."""
-        pass
-
-    def delete(self, value):
-        """Delete the first node with a given value."""
-        pass
+        counter = 1
+        current = self.head
+        if position > 0:
+            while current and counter <= position:
+                if counter == position:
+                    return current
+                current = current.next
+                counter += 1
+            return None
+        else:
+            return None
 
 
 # Test cases
@@ -76,26 +73,5 @@ e4 = Element(4)
 ll = LinkedList(e1)
 ll.append(e2)
 ll.append(e3)
-
-print("************")
-print(ll.head.next)
-print("************")
-# Test get_position
-# Should print 3
-print(ll.head.next.next.value)
-# # Should also print 3
-print(ll.get_position(3).value)
-#
-# # Test insert
-# ll.insert(e4, 3)
-# # Should print 4 now
-# print(ll.get_position(3).value)
-#
-# # Test delete
-# ll.delete(1)
-# # Should print 2 now
-# print(ll.get_position(1).value)
-# # Should print 4 now
-# print(ll.get_position(2).value)
-# # Should print 3 now
-# print(ll.get_position(3).value)
+ll.append(e4)
+print(ll.get_position(4).value)
