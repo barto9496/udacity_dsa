@@ -21,7 +21,7 @@ traversal function time as they are just shifting pointers and looping / iterati
 Doubly linked lists:
 In this the elements not only point to the next element but also point to the previous element.
 |----------------------------------------|
-|Linked List        |Linked List         |
+|Linked List         |Linked List        |
 |----------------------------------------|
 |value: 8            |value: 8           |
 |next: 0x112         |next: null         |
