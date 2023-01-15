@@ -1,32 +1,4 @@
-"""The LinkedList code from before is provided below.
-Add three functions to the LinkedList.
-"get_position" returns the element at a certain position.
-The "insert" function will add an element to a particular
-spot in the list.
-"delete" will delete the first element with that
-particular value.
-Then, use "Test Run" and "Submit" to run the test cases
-at the bottom.
-# There isn't a built-in data structure in Python that looks like a linked list. 
-# Thankfully, it's easy to make classes that represent data structures in Python!
-"""
-
-
 class Element(object):
-    """ All classes have a built-in init function, which is always executed when the class is being initiated.
-    Use the __init__() function to assign values to object properties, or other operations that are necessary to do
-    when the object is being created:
-
-    Example:
-        class Person:
-            def __init__(self,name,age):
-                self.name = name
-                self.age = age
-
-        p1 = Person("john", 25)
-        print(p1.name)
-        print(p1,age)
-    """
     def __init__(self, value):
         self.value = value
         self.next = None
@@ -46,12 +18,9 @@ class LinkedList(object):
             self.head = new_element
 
     def get_position(self, position):
-        """Get an element from a particular position.
-        Assume the first position is "1".
-        Return "None" if position is not in the list."""
         counter = 1
         current = self.head
-        if position > 0:
+        if counter > 0:
             while current and counter <= position:
                 if counter == position:
                     return current
@@ -61,17 +30,44 @@ class LinkedList(object):
         else:
             return None
 
+    def insert(self, new_element, position):
+        counter = 1
+        current = self.head
+        if position > 1:
+            while current and counter <= position:
+                if counter == position-1:
+                    new_element.next = current
+                    current.next = new_element
+                current = current.next
+                counter += 1
+        elif position == 1:
+            new_element.next = self.head
+            self.head = new_element
 
-# Test cases
-# Set up some Elements
+    def delete(self, value):
+        previous = None
+        current = self.head
+        while current.value != value and current.next:
+            previous = current
+            current = current.next
+        if current.value == value:
+            if previous:
+                previous.next = current.next
+            else:
+                self.head = current.next
+
+
+
+
 e1 = Element(1)
 e2 = Element(2)
-e3 = Element(3)
-e4 = Element(4)
 
-# Start setting up a LinkedList
+print(e1.next, e1.value)
+print(e2.next, e2.value)
+
 ll = LinkedList(e1)
+print(ll.head.value, ll.head.next)
+
 ll.append(e2)
-ll.append(e3)
-ll.append(e4)
-print(ll.get_position(4).value)
+
+print(ll.get_position(1).value)
