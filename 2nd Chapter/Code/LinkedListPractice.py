@@ -35,7 +35,7 @@ class LinkedList(object):
         current = self.head
         if position > 1:
             while current and counter <= position:
-                if counter == position-1:
+                if counter == position - 1:
                     new_element.next = current
                     current.next = new_element
                 current = current.next
@@ -55,8 +55,6 @@ class LinkedList(object):
                 previous.next = current.next
             else:
                 self.head = current.next
-
-
 
 
 e1 = Element(1)
