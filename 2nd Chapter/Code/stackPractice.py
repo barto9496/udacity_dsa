@@ -27,12 +27,22 @@ class LinkedList(object):
             self.head = new_element
 
     def insert_first(self, new_element):
-        "Insert new element as the head of the LinkedList"
-        pass
+        """Insert new element as the head of the LinkedList. Here we need to
+        consider that the elements need to pushed on top of the stack, so, we
+        need to remove only top and also insert at the top of the data type.
+        Here self_head has both value and next. """
+        new_element.next = self.head
+        self.head = new_element
 
     def delete_first(self):
-        "Delete the first (head) element in the LinkedList as return it"
-        pass
+        """Delete the first (head) element in the LinkedList as return it"""
+        if self.head:
+            current = self.head
+            self.head = self.head.next
+            return current
+            pass
+        else:
+            return "Stack is empty"
 
 
 class Stack(object):
@@ -40,11 +50,12 @@ class Stack(object):
         self.ll = LinkedList(top)
 
     def push(self, new_element):
-        "Push (add) a new element onto the top of the stack"
+        self.ll.insert_first(new_element)
         pass
 
     def pop(self):
-        "Pop (remove) the first element off the top of the stack and return it"
+        """Pop (remove) the first element off the top of the stack and return it"""
+        return self.ll.delete_first()
         pass
 
 
