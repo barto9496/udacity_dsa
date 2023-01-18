@@ -23,6 +23,3 @@ lower than 10 and then ending up on the last element which is 8.
 
 So the time efficiency of the algorithm isn't really O(n) instead it is O(n/2) as for 
 an array of 8 elements we had 4 iterations 
-
-Here is a run of multiple systems 
-![img_1.png](img_1.png)
