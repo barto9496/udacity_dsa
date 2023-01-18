@@ -23,3 +23,4 @@ types of queue that show up a lot
 
 1. Deques: Can enqueue and deque from both front and the back. If you think about it a Deques is a generalised structure of stacks, it can be treated as stacks and Que at the same time, meaning that you can add the element at one end, while also being able to remove the element from that end or else a que where you add at one end and remove at the other 
 2. Priority queue: This element has a numerical priority assigned to each element that are being added to the queue, when you remove an element you remove the element with the highest priority. This doesn't necessarily follow the rules of queues. If the elements have the same priority the oldest element gets removed first.
+
