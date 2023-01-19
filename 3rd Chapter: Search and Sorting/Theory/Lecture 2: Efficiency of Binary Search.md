@@ -22,4 +22,6 @@ Similarly, when you go with the array [7,8] you consider 7 in your case which is
 lower than 10 and then ending up on the last element which is 8. 
 
 So the time efficiency of the algorithm isn't really O(n) instead it is O(n/2) as for 
-an array of 8 elements we had 4 iterations 
+an array of 8 elements we had 4 iterations.
+
+
